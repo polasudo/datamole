@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  GitHub Events ingestion infra:
+    • DynamoDB table with TTL
+
+Resources:
+
+  GitHubEventsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: GitHubEvents
+      AttributeDefinitions:
+        - AttributeName: repoName
+          AttributeType: S
+        - AttributeName: createdAt
+          AttributeType: S
+      KeySchema:
+        - AttributeName: repoName
+          KeyType: HASH
+        - AttributeName: createdAt
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      TimeToLiveSpecification:
+        AttributeName: expireAt
+        Enabled: true
