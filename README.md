@@ -16,23 +16,17 @@ A Python-based service that monitors GitHub events and provides metrics via a RE
 ## Architecture (C4 Level 1)
 
 ```mermaid
-graph TB
-    User((End User))
-    API[REST API Service]
-    GitHub[GitHub API]
-    Storage[(Event Storage)]
-    Collector[Event Collector]
-    
-    User --> API
-    API --> Storage
-    Collector --> GitHub
-    Collector --> Storage
-    
-    style User fill:#f9f,stroke:#333,stroke-width:2px
-    style API fill:#bbf,stroke:#333,stroke-width:2px
-    style GitHub fill:#bfb,stroke:#333,stroke-width:2px
+flowchart TB
+    User(("End User")) -- Sends request for data --> API["REST API Service"]
+    API -- gets data --> Storage[("Event Storage")]
+    Collector["Event Collector"] -- Collects events --> GitHub["GitHub API"]
+    Collector -- sends events --> Storage
+
+    style User stroke-width:2px
+    style API stroke-width:2px
     style Storage fill:#fbb,stroke:#333,stroke-width:2px
-    style Collector fill:#bbf,stroke:#333,stroke-width:2px
+    style Collector stroke-width:2px
+    style GitHub fill:#bfb,stroke:#333,stroke-width:2px
 ```
 
 ## Setup
