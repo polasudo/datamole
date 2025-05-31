@@ -239,7 +239,14 @@ async def list_public_events(
 def list_all_events():
     """
     Return every GitHub event JSON currently stored in DynamoDB,
-    regardless of repo. WARNING: full table scan, can be slow if large.
+    regardless of repo. WARNING: full table scan, can be slow if large. this works only if class DynamoEventStore in storage is uncommented and used.
+    i commented it out because of saving costs for my personal aws account. u can deploy dynamoDB to aws account 
+    with aws sam --guided or u can just use aws sam deploy
+    since there is a cloudformation template in the root of the project.
+    this template will create a table with the name GitHubEvents.
+    i used my own credentials and hardcoded them in the code.
+    potential usage for the future would be passing the events into the sqs queue or sns topic
+    and lambda would be triggered to process the events and store them in the dynamoDB table or else.
     """
     try:
         all_evts = store.get_all_events()
