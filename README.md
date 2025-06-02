@@ -117,9 +117,6 @@ flake8 app
    - The service assumes the GitHub API is generally available
    - Rate limiting is handled gracefully
 
-2. Data Retention:
-   - Events are stored indefinitely (implement cleanup if needed)
-   - Duplicate events are filtered using event IDs
 
 3. Time Zones:
    - All timestamps are stored and processed in UTC
