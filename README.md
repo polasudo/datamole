@@ -34,7 +34,7 @@ flowchart TB
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd github-events-monitor
+cd to githur repository
 ```
 
 2. Create and activate a virtual environment:
