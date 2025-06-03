@@ -98,18 +98,6 @@ Returns a PNG visualization of PR intervals over the specified number of days.
   1. PR creation timeline (scatter plot)
   2. PR interval distribution with mean and median lines
 
-## Development
-
-### Running Tests
-```bash
-pytest
-```
-
-### Code Style
-The project follows PEP 8 guidelines. Use flake8 for linting:
-```bash
-flake8 app
-```
 
 ## Assumptions
 
